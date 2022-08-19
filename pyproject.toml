@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "osdu-to-wdl"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "*"
+SQLAlchemy = "^1.4.36"
+cognite-sdk = "^3"
+coloredlogs = "*"
+cognite-wells-sdk = "^0.15"
+
+[tool.poetry.dev-dependencies]
+notebook = "^6.4.11"
+ipykernel = "^6.13.0"
+black = "*"
+isort = "*"
+flake8 = "*"
+mypy = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target_version = ['py37']
+include = '\.py$'
+
+[tool.isort]
+line_length=100                # corresponds to -w  flag
+multi_line_output=3            # corresponds to -m  flag
+include_trailing_comma=true    # corresponds to -tc flag
+skip_glob = '^((?!py$).)*$'    # isort all Python files
+known_third_party = []

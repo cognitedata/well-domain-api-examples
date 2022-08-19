@@ -1,0 +1,4 @@
+pandas >= 1.0, < 2
+cognite-sdk >= 3.0, < 4
+cognite-wells-sdk >= 0.15.0, < 0.16
+coloredlogs
