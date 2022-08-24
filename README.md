@@ -5,9 +5,11 @@ api (also called the well data layer).
 
 In this example, we are ingesting well data from OSDU into the well domain api.
 
+For documentation about the well domain api, please check out the [python sdk documentation](https://cognite-wells-sdk.readthedocs-hosted.com/en/latest/index.html).
+
 ## Usage
 
-```shell
+```bash
 # Install requirements using requirements.txt
 pip install -r requirements.txt
 
@@ -21,8 +23,8 @@ export COGNITE_TOKEN_SCOPES="${COGNITE_BASE_URL}/.default"
 export COGNITE_TOKEN_URL="https://login.microsoftonline.com/${COGNITE_TENANT_ID}/oauth2/v2.0/token"
 
 # Run the ingestion scripts
-python 01-wells-and-wellbores.py
-python 02-trajectories.py
-python 03-depth-measurements.py
-python 04-well-tops.py
+python ingestion/01-wells-and-wellbores.py
+python ingestion/02-trajectories.py
+python ingestion/03-depth-measurements.py
+python ingestion/04-well-tops.py
 ```
