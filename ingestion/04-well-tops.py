@@ -99,17 +99,17 @@ def main():
         ingestions = []
         for wt in wt_chunk:
             i += 1
-        progress_str = log_progress(start_time, i, len(well_tops))
-        log.info(f"{progress_str} Creating well_tops ingestion for {wt.external_id}")
-        data = client.sequences.data.retrieve(id=wt.id, start=0, end=None)
-        ingestion = create_well_tops(wt, data, assets_dict)
-        if ingestion is not None:
+            progress_str = log_progress(start_time, i, len(well_tops))
+            log.info(f"{progress_str} Creating well_tops ingestion for {wt.external_id}")
+            data = client.sequences.data.retrieve(id=wt.id, start=0, end=None)
+            ingestion = create_well_tops(wt, data, assets_dict)
+            if ingestion is not None:
                 ingestions.append(ingestion)
-            try:
+        try:
             wdl.well_tops.ingest(ingestions)
-            except Exception as e:
-                log.error("    Failed to ingest WDL depth measurements", exc_info=e)
-                break
+        except Exception as e:
+            log.error("    Failed to ingest WDL depth measurements", exc_info=e)
+            break
 
 
 if __name__ == "__main__":
